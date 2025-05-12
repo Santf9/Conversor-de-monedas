@@ -1,4 +1,4 @@
-package com.modelos;
+package modelos;
 
 public record Monedas(String monedaBase,
                       String monedaDestino,

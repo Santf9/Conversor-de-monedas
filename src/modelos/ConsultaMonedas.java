@@ -1,4 +1,4 @@
-package com.modelos;
+package modelos;
 
 import com.google.gson.Gson;
 
@@ -14,8 +14,8 @@ public class ConsultaMonedas {
 
         // Crear la URI para la solicitud
         String apiKey = System.getenv("API_KEY");
-        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/".concat(apiKey) + "/pair/"
-                .concat(monedaBase) + "/".concat(monedaDestino) + "/" + valorAConvertir);
+        URI direccion = URI.create("https://v6.exchangerate-api.com/v6/".concat(apiKey)+"/pair/"
+                +monedaBase+"/"+monedaDestino+"/"+valorAConvertir);
 
         // Crear un cliente HTTP
         HttpClient client = HttpClient.newHttpClient();
@@ -37,11 +37,21 @@ public class ConsultaMonedas {
 
     }
 
-    public void mostrarMenu() {
-        System.out.println("Bienvenido a la API de conversión de monedas");
-        System.out.println("Por favor, ingrese la moneda base:");
-        System.out.println("Por favor, ingrese la moneda destino:");
-        System.out.println("Por favor, ingrese el valor a convertir:");
+    public static void mostrarMenu() {
+        System.out.println("""
+        ******************************************************
+        Sea Bienvenido/a al Conversor de Monedas
+        
+        1) Dólar =>> Peso argentino
+        2) Peso argentino =>> Dólar
+        3) Dólar =>> Real brasileño
+        4) Real brasileño =>> Dólar
+        5) Dólar =>> Peso colombiano
+        6) Peso colombiano =>> Dólar
+        7) Salir
+        ******************************************************
+        Elija una opción válida:
+        """);
     }
 }
 
