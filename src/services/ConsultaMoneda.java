@@ -8,9 +8,10 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ConsultaMoneda {
+    // Metodo para buscar la tasa de conversión entre dos monedas
     public Monedas buscarMonedas (String monedaBase, String monedaDestino) throws IOException, InterruptedException {
 
-        // Crear la URI para la solicitud
+        // Crear la URI para la solicitud a consumir
         String apiKey = System.getenv("API_KEY");
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/".concat(apiKey)+"/pair/"+monedaBase+"/"+monedaDestino);
 
@@ -25,6 +26,7 @@ public class ConsultaMoneda {
         // Enviar la solicitud y recibir la respuesta
         HttpResponse<String> response;
 
+        // Manejar error en la respuesta
         try {
             response = client.send(request,HttpResponse.BodyHandlers.ofString());
         } catch (Exception e) {

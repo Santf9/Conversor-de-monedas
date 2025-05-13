@@ -1,81 +1,52 @@
 package main;
+import modelos.ConvertirMoneda;
 import services.ConsultaMoneda;
 import java.io.IOException;
 import java.util.Scanner;
 import static modelos.ConvertirMoneda.mostrarMenu;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         ConsultaMoneda consulta = new ConsultaMoneda();
-        int opcion;
+        
+        int opcion = 0;
 
-        do {
+        while (opcion != 8) {
             mostrarMenu();
             opcion = scanner.nextInt();
+            scanner.nextLine(); // Limpiar el buffer
 
             switch (opcion) {
-                case 1 -> {
-                    System.out.println("Ingrese la cantidad de Dólares a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("USD", "ARS", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 2 -> {
-                    System.out.println("Ingrese la cantidad de Pesos argentinos a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("ARS", "USD", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 3 -> {
-                    System.out.println("Ingrese la cantidad de Dólares a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("USD", "BRL", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 4 -> {
-                    System.out.println("Ingrese la cantidad de Reales brasileños a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("BRL", "USD", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 5 -> {
-                    System.out.println("Ingrese la cantidad de Dólares a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("USD", "COP", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 6 -> {
-                    System.out.println("Ingrese la cantidad de Pesos colombianos a convertir: ");
-                    double valorAConvertir = scanner.nextDouble();
-                    try {
-                        System.out.println(consulta.buscarMonedas("COP", "USD", valorAConvertir));
-                    } catch (IOException | InterruptedException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                case 7 -> System.out.println("Gracias por usar el conversor de moneda.");
-                default -> System.out.println("Opción no válida. Por favor, elija una opción del 1 al 7.");
+                case 1:
+                    ConvertirMoneda.convertir("USD", "ARS", consulta, scanner);
+                    break;
+                case 2:
+                    ConvertirMoneda.convertir("ARS", "USD", consulta, scanner);
+                    break;
+                case 3:
+                    ConvertirMoneda.convertir("USD", "BRL", consulta, scanner);
+                    break;
+                case 4:
+                    ConvertirMoneda.convertir("BRL", "USD", consulta, scanner);
+                    break;
+                case 5:
+                    ConvertirMoneda.convertir("USD", "COP", consulta, scanner);
+                    break;
+                case 6:
+                    ConvertirMoneda.convertir("COP", "USD", consulta, scanner);
+                    break;
+                case 7:
+                    ConvertirMoneda.convertirOtraMoneda(consulta, scanner);
+                    break;
+                case 8:
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Por favor, elija una opción del menú.");
+                    break;
             }
-            break;
-
-        } while (opcion != 7);
-
+        }
         scanner.close();
     }
 }

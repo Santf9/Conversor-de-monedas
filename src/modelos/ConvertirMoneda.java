@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ConvertirMoneda {
+    // Metodo para convertir de una moneda a otra
     public static void convertir (String monedaBase, String monedaDestino, ConsultaMoneda consulta, Scanner lectura) throws IOException, InterruptedException {
         double cantidad;
         double cantidadConvertida;
@@ -18,25 +19,27 @@ public class ConvertirMoneda {
 
     }
 
+    // Metodo para convertir otro tipo de monedas
     public static void convertirOtraMoneda (ConsultaMoneda consulta, Scanner lectura) throws IOException, InterruptedException {
-        System.out.println("Ingrese el codigo de la moneda base:");
+        System.out.println("Ingrese el código de la moneda Base: ");
         String monedaBase = lectura.nextLine().toUpperCase();
-        System.out.println("Ingrese la moneda objetivo:");
-        String monedaObjetivo = lectura.nextLine().toUpperCase();
-        convertir(monedaBase, monedaObjetivo, consulta, lectura);
+        System.out.println("Ingrese la moneda Destino a convertir: ");
+        String monedaDestino = lectura.nextLine().toUpperCase();
+        convertir(monedaBase, monedaDestino, consulta, lectura);
     }
 
+    // Metodo que muestra el menu de opciones
     public static void mostrarMenu() {
         System.out.println("""
         ******************************************************
         🪙🪙 Bienvenido/a al Conversor de Monedas 🪙🪙
         ******************************************************
-        1) Dólar ==>> Peso argentino
-        2) Peso argentino ==>> Dólar
-        3) Dólar ==>> Real brasileño
-        4) Real brasileño ==>> Dólar
-        5) Dólar ==>> Peso colombiano
-        6) Peso colombiano ==>> Dólar
+        1) Dólar("USD") ===> Peso Argentino("ARS")
+        2) Peso Argentino("ARS") ===> Dólar("USD")
+        3) Dólar("USD") ===> Real Brasileño("BRL")
+        4) Real Brasileño("BRL") ===> Dólar("USD")
+        5) Dólar("USD") ===> Peso Colombiano("COP")
+        6) Peso Colombiano("COP") ===> Dólar("USD")
         7) Convertir otras monedas
         8) Salir
         ******************************************************
