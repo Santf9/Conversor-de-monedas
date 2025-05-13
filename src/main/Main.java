@@ -1,16 +1,13 @@
 package main;
-import modelos.ConsultaMonedas;
-import modelos.Monedas;
-
+import services.ConsultaMoneda;
 import java.io.IOException;
 import java.util.Scanner;
-
-import static modelos.ConsultaMonedas.mostrarMenu;
+import static modelos.ConvertirMoneda.mostrarMenu;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ConsultaMonedas consulta = new ConsultaMonedas();
+        ConsultaMoneda consulta = new ConsultaMoneda();
         int opcion;
 
         do {
