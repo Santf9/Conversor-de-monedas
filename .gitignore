@@ -4,6 +4,7 @@ out/
 !**/src/test/**/out/
 /.idea
 /conversor-de-monedas.iml
+.env
 
 ### Eclipse ###
 .apt_generated

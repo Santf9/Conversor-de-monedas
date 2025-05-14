@@ -15,7 +15,6 @@ public class Main {
         while (opcion != 8) {
             mostrarMenu();
             opcion = scanner.nextInt();
-            scanner.nextLine(); // Limpiar el buffer
 
             switch (opcion) {
                 case 1:
@@ -47,6 +46,5 @@ public class Main {
                     break;
             }
         }
-        scanner.close();
     }
 }
