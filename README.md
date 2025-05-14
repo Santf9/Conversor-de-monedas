@@ -1,17 +1,17 @@
-# Challenge Conversor de Monedas 💱
+# <h1 style="text-align:center;">Challenge Conversor de Monedas 💱</h1>
 
-## 📝 Descripción
+# 📝 Descripción
 Este proyecto forma parte de la Formación Backend de Alura Latam. Consiste en crear una aplicación de consola en Java que permite convertir valores entre distintas monedas extrayendo Tasas de Cambio Actuales
 desde una API.
 
-## 🛠️ Tecnologías utilizadas
+# 🛠️ Tecnologías utilizadas
 
 - **Java 21**
 - **IDE recomendado**: IntelliJ IDEA o Visual Studio Code
 - **Entrada por consola** (`Scanner`)
 - **ExchangeRate-API**: Brinda la actualización de Tasas de Conversión de Monedas de 161 países.
 
-## 📁 Estructura del proyecto
+# 📁 Estructura del proyecto
 
 ```
 Conversor-de-monedas/
@@ -25,7 +25,7 @@ Conversor-de-monedas/
       └── ConsultaMoneda.java
 ```
 
-## 🚀 ¿Cómo ejecutar?
+# 🚀 ¿Cómo ejecutar?
 
 1. Clona este repositorio:
 
@@ -47,7 +47,7 @@ java src.Main
 
 > Asegúrate de tener Java correctamente configurado en tu sistema.
 
-## ✨ Funcionalidades
+# ✨ Funcionalidades
 
 - Conversión entre:
     - $USD ↔ $ARS
